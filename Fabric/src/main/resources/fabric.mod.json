@@ -1,39 +1,36 @@
 {
-    "schemaVersion": 1,
-    "id": "modid",
-    "version": "${version}",
-  
-    "name": "Example Mod",
-    "description": "This is an example description! Tell everyone what your mod is about!",
-    "authors": [
-      "Me!"
+  "schemaVersion": 1,
+  "id": "guarding",
+  "version": "${version}",
+
+  "name": "Guarding",
+  "description": "Adds some new shield mechanics to spice them up!",
+  "authors": [
+    "ExDrill"
+  ],
+  "contact": {},
+  "license": "CC0-1.0",
+  "icon": "assets/guarding/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.exdrill.guarding.GuardingFabric"
     ],
-    "contact": {
-      "homepage": "https://fabricmc.net/",
-      "sources": "https://github.com/FabricMC/fabric-example-mod"
-    },
-  
-    "license": "CC0-1.0",
-    "icon": "assets/modid/icon.png",
-  
-    "environment": "*",
-    "entrypoints": {
-      "main": [
-        "com.example.examplemod.ExampleMod"
-      ]
-    },
-    "mixins": [
-      "modid.mixins.json"
+    "client": [
+      "com.exdrill.guarding.GuardingFabricClient"
     ],
-  
-    "depends": {
-      "fabricloader": ">=0.14",
-      "fabric": "*",
-      "minecraft": "1.19.x",
-      "java": ">=17"
-    },
-    "suggests": {
-      "another-mod": "*"
-    }
-  }
-  
+    "mm:early_risers": [
+      "com.exdrill.guarding.GuardingEarlyRiser"
+    ]
+  },
+  "accessWidener": "guarding.accesswidener",
+  "mixins": [
+    "guarding.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric": "*",
+    "java": ">=17"
+  },
+  "suggests": {}
+}

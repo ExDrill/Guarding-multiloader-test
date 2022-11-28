@@ -6,6 +6,17 @@ plugins {
 
 archivesBaseName = "${mod_name}-fabric-${minecraft_version}"
 
+repositories {
+    maven { url = 'https://jitpack.io' }
+
+    maven {
+        url = 'https://jitpack.io'
+        content {
+            includeGroup "com.github.Chocohead"
+        }
+    }
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
@@ -13,6 +24,10 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     implementation project(":Common")
+
+    // Fabric ASM
+    modImplementation "com.github.Chocohead:Fabric-ASM:${fabric_asm_version}"
+    include "com.github.Chocohead:Fabric-ASM:${fabric_asm_version}"
 }
 
 loom {
@@ -30,6 +45,7 @@ loom {
             runDir("run")
         }
     }
+    accessWidenerPath = file("src/main/resources/guarding.accesswidener")
 }
 
 
